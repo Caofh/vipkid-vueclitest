@@ -3,6 +3,7 @@
     <div class="title">设备属性对比</div>
     当前设备像素比为：<span class="f71">{{radio}}</span> <br/>
     当前设备实际宽度：<span class="f71">{{widthReal}}px</span> <br/>
+    当前设备宽度的实际物理像素点个数：{{radio}} * {{widthReal}} = <span class="f71">{{radio * widthReal}}</span> <br/>
     <hr/>
     如下图片代码中的宽度：<span class="f71">10rem</span> <br/>
     当前html的字号：<span class="f71">{{fontSize}}</span> <br/>
@@ -13,17 +14,17 @@
     2x: <span class="f71">750px</span><br/>
     3x: <span class="f71">1125px</span><br/>
     <hr/>
-    1x(1倍图)
+    1x(1倍图)；实际像素：375 * 393
     <img src="../assets/img/@1x.png">
     <br/>
     <hr/>
     <br/>
-    2x(2倍图)
+    2x(2倍图)；实际像素：750 * 786
     <img src="../assets/img/@2x.png">
     <br/>
     <hr/>
     <br/>
-    3x(3倍图)
+    3x(3倍图)；实际像素：1125 * 1179
     <img src="../assets/img/@3x.png">
     <br/>
     <hr/>
