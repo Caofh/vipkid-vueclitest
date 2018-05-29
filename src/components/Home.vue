@@ -46,6 +46,9 @@ export default {
       msg: 'I am home page !'
     }
   },
+  created () {
+    document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">')
+  },
   mounted () {
       console.log(this.fontSize)
 
