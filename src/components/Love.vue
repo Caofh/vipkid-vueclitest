@@ -27,7 +27,7 @@ export default {
   },
   created () {
     this.$messagebox.confirm('', {
-      title: '哈哈哈',
+      title: '做我女朋友',
       message: '好吗？好吗？好吗？',
       showConfirmButton: true,
       confirmButtonText: '好',
