@@ -84,9 +84,6 @@
           </div>
 
         </div>
-        <div class="swiper-slide">
-
-        </div>
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
@@ -137,7 +134,7 @@ export default {
           },
         },
       });
-//
+
       var swiper1 = new Swiper('.swiper-container1', {
         effect: 'coverflow',
         grabCursor: true,
@@ -164,11 +161,11 @@ export default {
 
       var swiper3 = new Swiper('.swiper-container3', {
         effect: 'flip',
-        autoplay: {
-          delay: 1500,
-          stopOnLastSlide: false,
-          disableOnInteraction: false,
-        },
+//        autoplay: {
+//          delay: 2000,
+//          stopOnLastSlide: false,
+//          disableOnInteraction: false,
+//        },
         grabCursor: true,
         pagination: {
           el: '.swiper-pagination',
@@ -199,7 +196,6 @@ export default {
         },
       });
 
-
     })
 
   },
@@ -208,27 +204,6 @@ export default {
   }
 
 }
-
-var doc = {
-  init () {
-    this.helper()
-  },
-  helper () {
-
-
-
-
-
-
-  }
-
-
-
-
-
-}
-
-
 
 </script>
 
@@ -327,7 +302,7 @@ var doc = {
           width: pr(740);
           padding: 0 0 0 pr(10);
           text-align: center;
-          color: #fff;
+          color: rgba(255, 255, 255, 0.7);
           font-size: pr(50);
         }
         .container-content:nth-child(2) {
@@ -335,6 +310,10 @@ var doc = {
         }
 
       }
+
+
+
+
       & > .swiper-slide:nth-child(2) {
         background: url("http://118.190.207.166:8000/loveying/bg_2.jpeg") no-repeat center / 100% 100%;
         overflow: hidden;
@@ -342,7 +321,7 @@ var doc = {
         .swiper-container1 {
           position: relative;
           left: 50%;
-          margin-left: -150px;
+          margin-left: pr(-325);
           margin-top: pr(100);
           width: pr(650);
           height: pr(650);
@@ -350,15 +329,13 @@ var doc = {
           .swiper-slide {
             background-position: center;
             background-size: cover;
-            width: 300px;
-            height: 300px;
 
           }
           .swiper-slide:first-child {
             background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_1.jpg)
           }
           .swiper-slide:nth-child(2) {
-            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_2.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_6.jpg)
           }
           .swiper-slide:nth-child(3) {
             background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_3.jpg)
@@ -370,7 +347,7 @@ var doc = {
             background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_5.jpg)
           }
           .swiper-slide:nth-child(6) {
-            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_6.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_2.jpg)
           }
           .swiper-slide:nth-child(7) {
             background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_7.jpg)
@@ -386,12 +363,12 @@ var doc = {
         .container-content-1 {
           font-weight: bold;
           position: relative;
-          top: pr(50);
+          margin-top: pr(20);
           width: pr(730);
           padding: 0 0 0 pr(20);
           text-align: center;
           color: rgba(48, 149, 255, 0.78);
-          font-size: pr(40);
+          font-size: pr(35);
 
           span {
             display: none;
@@ -402,6 +379,10 @@ var doc = {
         }
 
       }
+
+
+
+
       & > .swiper-slide:nth-child(3) {
         background: url("http://118.190.207.166:8000/loveying/bg_3.jpeg") no-repeat center / 100% 100%;
 
@@ -410,14 +391,12 @@ var doc = {
           height: pr(650);
           position: relative;
           left: 50%;
-          margin-left: -150px;
+          margin-left: pr(-325);
           margin-top: pr(100);
 
           .swiper-slide {
             background-position: center;
             background-size: cover;
-            width: 300px;
-            height: 300px;
           }
           .swiper-slide:first-child {
             background-image:url(http://118.190.207.166:8000/loveying/realImg/part3_1.jpg)
@@ -447,13 +426,15 @@ var doc = {
           width: pr(720);
           padding: 0 0 0 pr(20);
           text-align: center;
-          color: rgba(255, 119, 17, 0.59);
-          font-size: pr(40);
+          color: rgba(255, 255, 255, 0.7);
+          font-size: pr(35);
         }
       }
       & > .swiper-slide:nth-child(4) {
         background: url("../assets/img/ying/bg_4.jpeg") no-repeat center / 100% 100%;
       }
+
+
 
     }
 
