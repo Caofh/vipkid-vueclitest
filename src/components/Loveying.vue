@@ -18,6 +18,14 @@
             <!--<div class="swiper-pagination"></div>-->
           </div>
 
+          <div class="container-content">
+            坐标：河内<br/>
+            读万卷书，行万里路。走的路越多，人就会越美。看，这个小美女是谁？
+          </div>
+          <div class="container-content">看，我可以托起一座山！</div>
+          <div class="container-content">越南的建筑风格原来是这样的！</div>
+          <div class="container-content">我是颖宝，我斜着拍也好看！</div>
+
         </div>
         <div class="swiper-slide">
 
@@ -35,6 +43,18 @@
             </div>
             <!-- Add Pagination -->
             <!--<div class="swiper-pagination"></div>-->
+          </div>
+
+          <div class="container-content-1">
+            <span>今天是颖宝的生日</span>
+            <span>，很幸运能够遇见颖宝</span>
+            <span>，虽然认识的时间不长（快一年了好吗）</span>
+            <span>，但是从心底里觉得颖宝是一个</span>
+            <span>可爱，幽默，贤惠的姑娘</span>
+            <span>，那么今天是颖宝的生日，祝愿颖宝每天都快乐！</span>
+            <span>可以预见自己的白马王子</span>
+            <span>！被宠成小公主！</span>
+            <span>有可能幸福就在身边哦😄！</span>
           </div>
 
         </div>
@@ -58,6 +78,11 @@
             <!--<div class="swiper-button-next"></div>-->
           </div>
 
+          <div class="container-content-3">
+            颖宝，无需证明给所有人看，只得到了一个明白的人就够了。做自己喜欢做的事，喜欢喜欢的人，你就是人生的主角。
+            在你人生这部剧里，相信是有主角光环的，如此秀美、俏丽非凡的小主必将成为颜高腿长有内涵的终极女神！
+          </div>
+
         </div>
         <div class="swiper-slide">Slide 4</div>
       </div>
@@ -71,7 +96,7 @@
 </template>
 
 <script>
-  import $ from 'n-zepto'
+  import $ from 'jquery'
 import '../assets/js/m.js'
 import Swiper from 'swiper'
 
@@ -89,7 +114,6 @@ export default {
   },
   mounted () {
 
-
     this.$nextTick(() => {
       var swiper = new Swiper('.swiper-container', {
         effect: 'cube',
@@ -103,9 +127,16 @@ export default {
         pagination: {
           el: '.swiper-pagination',
         },
+        on: {
+          transitionEnd: function(event){
+            //你的事件
+            console.log(this.activeIndex)
+            $('.container-content').hide().eq(this.activeIndex).fadeIn()
+          },
+        },
       });
 //
-      var swiper = new Swiper('.swiper-container1', {
+      var swiper1 = new Swiper('.swiper-container1', {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
@@ -120,10 +151,22 @@ export default {
         pagination: {
           el: '.swiper-pagination',
         },
+        on: {
+          transitionEnd: function(event){
+            //你的事件
+            console.log(this.activeIndex)
+            $('.container-content-1 span').eq(this.activeIndex).fadeIn()
+          },
+        },
       });
 
-      var swiper = new Swiper('.swiper-container3', {
+      var swiper3 = new Swiper('.swiper-container3', {
         effect: 'flip',
+        autoplay: {
+          delay: 1500,
+          stopOnLastSlide: false,
+          disableOnInteraction: false,
+        },
         grabCursor: true,
         pagination: {
           el: '.swiper-pagination',
@@ -134,7 +177,7 @@ export default {
         },
       });
 
-      var swiper = new Swiper('.swiper-container4', {
+      var swiper4 = new Swiper('.swiper-container4', {
 //        on:{
 //          transitionEnd: function(){
 //            console.log(this.activeIndex)
@@ -274,9 +317,25 @@ var doc = {
             background-image:url(http://118.190.207.166:8000/loveying/realImg/part1_4.jpg)
           }
         }
+
+        .container-content {
+          display: none;
+          position: absolute;
+          top: pr(900);
+          width: pr(740);
+          padding: 0 0 0 pr(10);
+          text-align: center;
+          color: #fff;
+          font-size: pr(50);
+        }
+        .container-content:nth-child(2) {
+          display: block;
+        }
+
       }
       & > .swiper-slide:nth-child(2) {
         background: url("http://118.190.207.166:8000/loveying/bg_2.jpeg") no-repeat center / 100% 100%;
+        overflow: hidden;
 
         .swiper-container1 {
           position: absolute;
@@ -321,6 +380,25 @@ var doc = {
             background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_9.jpg)
           }
         }
+
+        .container-content-1 {
+          font-weight: bold;
+          position: absolute;
+          top: pr(800);
+          width: pr(730);
+          padding: 0 0 0 pr(20);
+          text-align: center;
+          color: rgba(48, 149, 255, 0.78);
+          font-size: pr(40);
+
+          span {
+            display: none;
+          }
+          span:first-child {
+            display: inline;
+          }
+        }
+
       }
       & > .swiper-slide:nth-child(3) {
         background: url("http://118.190.207.166:8000/loveying/bg_3.jpeg") no-repeat center / 100% 100%;
@@ -358,6 +436,17 @@ var doc = {
             background-image:url(http://118.190.207.166:8000/loveying/realImg/part3_6.jpg)
           }
 
+        }
+
+        .container-content-3 {
+          font-weight: bold;
+          position: absolute;
+          top: pr(800);
+          width: pr(720);
+          padding: 0 0 0 pr(20);
+          text-align: center;
+          color: rgba(255, 119, 17, 0.59);
+          font-size: pr(40);
         }
       }
       & > .swiper-slide:nth-child(4) {
