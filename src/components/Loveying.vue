@@ -247,7 +247,7 @@ var doc = {
         transition: all 0.3s linear;
       }
       & > .swiper-slide:first-child {
-        background: url("../assets/img/ying/bg_1.jpeg") no-repeat center / 100% 100%;
+        background: url("http://118.190.207.166:8000/loveying/bg_1.jpeg") no-repeat center / 100% 100%;
 
         .swiper-container {
           width: 300px;
@@ -262,21 +262,21 @@ var doc = {
             background-size: cover;
           }
           .swiper-slide:first-child {
-            background-image:url(../assets/img/ying/realImg/part1_1.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part1_1.jpg)
           }
           .swiper-slide:nth-child(2) {
-            background-image:url(../assets/img/ying/realImg/part1_2.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part1_2.jpg)
           }
           .swiper-slide:nth-child(3) {
-            background-image:url(../assets/img/ying/realImg/part1_3.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part1_3.jpg)
           }
           .swiper-slide:nth-child(4) {
-            background-image:url(../assets/img/ying/realImg/part1_4.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part1_4.jpg)
           }
         }
       }
       & > .swiper-slide:nth-child(2) {
-        background: url("../assets/img/ying/bg_2.jpeg") no-repeat center / 100% 100%;
+        background: url("http://118.190.207.166:8000/loveying/bg_2.jpeg") no-repeat center / 100% 100%;
 
         .swiper-container1 {
           position: absolute;
@@ -294,36 +294,36 @@ var doc = {
 
           }
           .swiper-slide:first-child {
-            background-image:url(../assets/img/ying/realImg/part2_1.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_1.jpg)
           }
           .swiper-slide:nth-child(2) {
-            background-image:url(../assets/img/ying/realImg/part2_2.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_2.jpg)
           }
           .swiper-slide:nth-child(3) {
-            background-image:url(../assets/img/ying/realImg/part2_3.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_3.jpg)
           }
           .swiper-slide:nth-child(4) {
-            background-image:url(../assets/img/ying/realImg/part2_4.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_4.jpg)
           }
           .swiper-slide:nth-child(5) {
-            background-image:url(../assets/img/ying/realImg/part2_5.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_5.jpg)
           }
           .swiper-slide:nth-child(6) {
-            background-image:url(../assets/img/ying/realImg/part2_6.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_6.jpg)
           }
           .swiper-slide:nth-child(7) {
-            background-image:url(../assets/img/ying/realImg/part2_7.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_7.jpg)
           }
           .swiper-slide:nth-child(8) {
-            background-image:url(../assets/img/ying/realImg/part2_8.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_8.jpg)
           }
           .swiper-slide:nth-child(9) {
-            background-image:url(../assets/img/ying/realImg/part2_9.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part2_9.jpg)
           }
         }
       }
       & > .swiper-slide:nth-child(3) {
-        background: url("../assets/img/ying/bg_3.jpeg") no-repeat center / 100% 100%;
+        background: url("http://118.190.207.166:8000/loveying/bg_3.jpeg") no-repeat center / 100% 100%;
 
         .swiper-container3 {
           width: 300px;
@@ -340,22 +340,22 @@ var doc = {
             height: 300px;
           }
           .swiper-slide:first-child {
-            background-image:url(../assets/img/ying/realImg/part3_1.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part3_1.jpg)
           }
           .swiper-slide:nth-child(2) {
-            background-image:url(../assets/img/ying/realImg/part3_2.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part3_2.jpg)
           }
           .swiper-slide:nth-child(3) {
-            background-image:url(../assets/img/ying/realImg/part3_3.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part3_3.jpg)
           }
           .swiper-slide:nth-child(4) {
-            background-image:url(../assets/img/ying/realImg/part3_4.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part3_4.jpg)
           }
           .swiper-slide:nth-child(5) {
-            background-image:url(../assets/img/ying/realImg/part3_5.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part3_5.jpg)
           }
           .swiper-slide:nth-child(6) {
-            background-image:url(../assets/img/ying/realImg/part3_6.jpg)
+            background-image:url(http://118.190.207.166:8000/loveying/realImg/part3_6.jpg)
           }
 
         }
