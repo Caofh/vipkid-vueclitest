@@ -123,6 +123,7 @@ export default {
           shadowOffset: 20,
           shadowScale: 0.94,
         },
+        initialSlide: 1, //默认当前从第几个开始
         pagination: {
           el: '.swiper-pagination',
         },
@@ -134,6 +135,7 @@ export default {
           },
         },
       });
+      swiper.slideTo(0); // 跳转到第几个（API）
 
       var swiper1 = new Swiper('.swiper-container1', {
         effect: 'coverflow',
@@ -189,12 +191,14 @@ export default {
 //          },
 //        },
         direction: 'vertical',
+        initialSlide: 1, //默认当前从第几个开始
 //        spaceBetween: 30,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
         },
       });
+      swiper4.slideTo(0); // 跳转到第几个（API）
 
     })
 
