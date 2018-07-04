@@ -1,11 +1,10 @@
 <template>
   <div class="love-ying">
-
-
-
     <div class="swiper-container4" :style="[{'height': windowHeight + 'px'}]">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
+
+          <audio style="display:none;" autoplay="autoplay" src="http://118.190.207.166:8000/loveying/redShoes.mp3"></audio>
 
           <div class="swiper-container">
             <div class="swiper-wrapper">
