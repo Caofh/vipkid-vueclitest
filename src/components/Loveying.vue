@@ -84,7 +84,9 @@
           </div>
 
         </div>
-        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">
+
+        </div>
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
@@ -293,12 +295,12 @@ var doc = {
         background: url("http://118.190.207.166:8000/loveying/bg_1.jpeg") no-repeat center / 100% 100%;
 
         .swiper-container {
-          width: 300px;
-          height: 300px;
+          width: pr(650);
+          height: pr(650);
           margin-top: pr(100);
-          position: absolute;
+          position: relative;
           left: 50%;
-          margin-left: -150px;
+          margin-left: pr(-325);
 
           .swiper-slide {
             background-position: center;
@@ -320,8 +322,8 @@ var doc = {
 
         .container-content {
           display: none;
-          position: absolute;
-          top: pr(900);
+          position: relative;
+          top: pr(50);
           width: pr(740);
           padding: 0 0 0 pr(10);
           text-align: center;
@@ -338,12 +340,12 @@ var doc = {
         overflow: hidden;
 
         .swiper-container1 {
-          position: absolute;
+          position: relative;
           left: 50%;
           margin-left: -150px;
           margin-top: pr(100);
-          width: 300px;
-          height: 300px;
+          width: pr(650);
+          height: pr(650);
 
           .swiper-slide {
             background-position: center;
@@ -383,8 +385,8 @@ var doc = {
 
         .container-content-1 {
           font-weight: bold;
-          position: absolute;
-          top: pr(800);
+          position: relative;
+          top: pr(50);
           width: pr(730);
           padding: 0 0 0 pr(20);
           text-align: center;
@@ -404,9 +406,9 @@ var doc = {
         background: url("http://118.190.207.166:8000/loveying/bg_3.jpeg") no-repeat center / 100% 100%;
 
         .swiper-container3 {
-          width: 300px;
-          height: 300px;
-          position: absolute;
+          width: pr(650);
+          height: pr(650);
+          position: relative;
           left: 50%;
           margin-left: -150px;
           margin-top: pr(100);
@@ -440,8 +442,8 @@ var doc = {
 
         .container-content-3 {
           font-weight: bold;
-          position: absolute;
-          top: pr(800);
+          position: relative;
+          top: pr(50);
           width: pr(720);
           padding: 0 0 0 pr(20);
           text-align: center;
@@ -452,8 +454,6 @@ var doc = {
       & > .swiper-slide:nth-child(4) {
         background: url("../assets/img/ying/bg_4.jpeg") no-repeat center / 100% 100%;
       }
-
-
 
     }
 
