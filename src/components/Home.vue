@@ -35,6 +35,7 @@
 <script>
 import '../assets/js/m.js'
 import $ from 'n-zepto'
+import { getList } from '../api/test'
 
 export default {
   name: 'Home',
@@ -49,8 +50,12 @@ export default {
   created () {
 
   },
-  mounted () {
-      console.log(this.fontSize)
+  async mounted () {
+    console.log(this.fontSize)
+
+    const dataList = await getList()
+    console.log(dataList)
+
 
   }
 
