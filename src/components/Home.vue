@@ -35,7 +35,7 @@
 <script>
 import '../assets/js/m.js'
 import $ from 'n-zepto'
-import { getList } from '../api/test'
+import { getList, weatherInfo } from '../api/test'
 
 export default {
   name: 'Home',
@@ -55,6 +55,9 @@ export default {
 
     const dataList = await getList()
     console.log(dataList)
+
+    const data = await weatherInfo('city=通州&province=北京')
+    console.log(data)
 
 
   }

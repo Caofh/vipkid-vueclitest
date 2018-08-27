@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .circle-1 {
+            position: relative;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: url("./assets/img/timeslotChart.jpeg") no-repeat center top / 100% auto;
+
+        }
+        .circle-1 .line {
+            position: absolute;
+            width: 210px;
+            height: 3px;
+            left: 0;
+            top: 50%;
+            background: red;
+
+            /*-webkit-transform: rotate(10deg);*/
+            /*-moz-transform: rotate(10deg);*/
+            /*-ms-transform: rotate(10deg);*/
+            /*-o-transform: rotate(10deg);*/
+            /*transform: rotate(10deg);*/
+            /*transform-origin: 100% 0;*/
+        }
+
+        .control-prev, .control-next {
+            width: 80px;
+            height: 30px;
+            background: #f71;
+            color: #ffff;
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="test"></div>
+
+
+    <div class="circle-1">
+
+        <div class="line"></div>
+
+
+
+
+    </div>
+
+<div class="control-prev">
+    向前控制
+</div>
+<div class="control-next">
+    向后控制
+</div>
+
+</body>
+
+
+
+<script>
+    $(function () {
+
+      var deg = 0
+      var rotate = ''
+
+      function move (direction) {
+
+        rotate = setInterval(function () {
+          if (direction == 'next') {
+            deg += 1
+          } else if (direction == 'prev') {
+            deg -= 1
+          }
+
+          console.log(deg)
+
+          $('.line').css({
+            '-webkit-transform': 'rotate('+deg+'deg)',
+            '-ms-transform': 'rotate('+deg+'deg)',
+            '-o-transform': 'rotate('+deg+'deg)',
+            'transform': 'rotate('+deg+'deg)',
+            'transform-origin': '100% 0'
+          })
+
+
+        }, 50)
+      }
+
+      function removeMove () {
+        clearInterval(rotate)
+      }
+
+      $('.control-prev').on('mouseenter', function () {
+        move('prev')
+
+      }).on('mouseleave', function () {
+        removeMove()
+
+      })
+
+      $('.control-next').on('mouseenter', function () {
+        move('next')
+
+      }).on('mouseleave', function () {
+        removeMove()
+
+      })
+
+
+
+
+
+
+
+
+
+
+    })
+
+
+</script>
+
+</html>
