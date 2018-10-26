@@ -69,3 +69,13 @@ function callApi (apiRoot = '/') {
 
   return obj
 }
+
+// data =》FormData模式传参
+export
+const createFormData = data => {
+  const formData = new FormData()
+  for (let i in data) {
+    formData.append(i, data[i])
+  }
+  return formData
+}
