@@ -32,7 +32,7 @@ $vm_base_content_width:pr(1180);
 $vm_base_content_height:$vm_base_content_width*(24/70);
 body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  overflow: hidden;
+  //overflow: hidden;
   width: 100vw;
   height: 100vh;
   display: flex;
