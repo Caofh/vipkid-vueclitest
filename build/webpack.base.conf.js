@@ -7,6 +7,8 @@ const vueLoaderConfig = require('./vue-loader.conf')
 //获取多入口js文件,新加HtmlWebpackPlugin
 var srcDir = path.resolve(__dirname, '../src')
 var entrys = utils.getEntries(srcDir + '/views/**/*.js')
+// var entrys = utils.getEntries(srcDir + '/views/xuankuActivity/xuankuActivity.js')
+
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 /*************************/
 
