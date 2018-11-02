@@ -22,15 +22,25 @@ import gateway from '../_gateway.config'
 // }
 
 export
-function callApi (apiRoot = '/') {
+function callApi (apiRoot = '/', upType = 'node') {
 
   var obj = {}
-    // var token = cookie('abc-token') || decodeURIComponent(getQueryString('authToken'))
-    obj = axios.create({
-      baseURL: apiRoot,
-      timeout: 10000,
-      // headers: { 'Authorization': token }
-    })
+  // var token = cookie('abc-token') || decodeURIComponent(getQueryString('authToken'))
+  let confObj = {
+    baseURL: apiRoot,
+    timeout: 10000,
+    // headers: { 'Authorization': token }
+    // headers: {'content-type': 'application/x-www-form-urlencoded'} // php接口的post上传你数组使用此类型
+    // headers: {'content-type': 'application/json;charset=UTF-8' } // nodejs接口的post上传你数组使用此类型
+  }
+  if (upType === 'node') {
+    confObj.headers = {'content-type': 'application/json;charset=UTF-8' }
+  } else {
+    // post上传php接口的headers头
+    confObj.headers = {'content-type': 'application/x-www-form-urlencoded'}
+  }
+
+  obj = axios.create(confObj)
 
   obj.interceptors.request.use(config => {
     return config

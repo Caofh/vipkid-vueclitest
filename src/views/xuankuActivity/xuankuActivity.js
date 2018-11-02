@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import App from './xuankuActivity.vue'
 import '@/assets/css/index.scss'
+import loading from '@/components/utils/loading/directive'
+
+Vue.use(loading)
+
 // import MintUI from 'mint-ui'
 // import 'mint-ui/lib/style.css'
 
