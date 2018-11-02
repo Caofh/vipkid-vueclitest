@@ -57,6 +57,8 @@
       uploadSuccess (imgData) {
         console.log(imgData)
 
+        alert(imgData.imgUrl)
+
       },
 
       // 裁剪按钮的回调(返回：base64数据流，图片裁剪的宽高)
