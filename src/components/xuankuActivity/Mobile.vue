@@ -39,7 +39,7 @@
         <input ref="imgUpload" type="file" @change="changeFile($event)">
       </div>
 
-      <div v-if="cropMark" class="confirm" @click="cropButton">
+      <div v-if="cropMark" v-loading="confirmLoading" class="confirm" @click="cropButton">
         确定
       </div>
     </div>
@@ -68,6 +68,7 @@
     data () {
       return {
         loadingMark: true,
+        confirmLoading: false, // 确认的loading
         dialogMark: false, // 弹窗显示标识
 
         name: '', // 姓名.
@@ -181,7 +182,8 @@
       // 裁剪按钮点击事件
       cropButton () {
         this.getCropBase64().then((base64) => {
-          console.log(base64)
+//          console.log(base64)
+          this.confirmLoading = true
 
           // 组织传参，将图片base64数据流上传
           let data = {
@@ -189,7 +191,7 @@
             path: 'xuanku/challenge' // 服务器上存储图片的路径
           }
 
-          console.log(data)
+//          console.log(data)
           uploadBase64Img(data).then((data) => {
 //            console.log(data)
 
@@ -202,8 +204,12 @@
               this.dialogMark = true
             }
 
+            this.confirmLoading = false
+
           }).catch ((error) => {
             alert(error.message)
+
+            this.confirmLoading = false
 
           })
 
@@ -217,9 +223,9 @@
           phone: this.phone,
           imgUrl: this.imgUrl || ''
         }
-        console.log(json)
+//        console.log(json)
         updateUser(json).then((data) => {
-          console.log(data)
+//          console.log(data)
 
           // 隐藏裁剪框
           this.loadingMark = true
@@ -379,6 +385,7 @@
       }
 
       .confirm {
+        position: relative;
         margin-left: pr(150);
         width: pr(150);
         height: pr(80);
