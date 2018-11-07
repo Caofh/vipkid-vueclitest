@@ -74,40 +74,40 @@
 
     },
     mounted () {
-      var map = new BMap.Map("container")
-      var point = new BMap.Point(116.404, 39.915)
-
-      map.centerAndZoom(point, 15) // 15为默认缩放级别
-
-      map.enableScrollWheelZoom(true) // 开启鼠标滚轮缩放
-
-
-      var marker = new BMap.Marker(point);        // 创建标注
-      map.addOverlay(marker);
-
-      var traffic = new BMap.TrafficLayer();        // 创建交通流量图层实例
-      map.addTileLayer(traffic);
-
-
-
-
-
-
-      window.setTimeout(function(){
-        map.panTo(new BMap.Point(116.409, 39.918))
-      }, 2000)
+      this.$nextTick(() => {
+        // 百度地图API功能
+        var map = new BMap.Map("container");
+        var point = new BMap.Point(116.417854,39.921988);
+        map.centerAndZoom(point, 11);
+        var opts = {
+          position : point,    // 指定文本标注所在的地理位置
+          offset   : new BMap.Size(30, -30)    //设置文本偏移量
+        }
+        var label = new BMap.Label("欢迎使用百度地图，这是一个简单的文本标注哦~", opts);  // 创建文本标注对象
+        label.setStyle({
+          color : "red",
+          fontSize : "12px",
+          height : "20px",
+          lineHeight : "20px",
+          fontFamily:"微软雅黑"
+        });
+        map.addOverlay(label);
 
 
+        // 将百度水印去掉
+        setTimeout(() => {
+          $('.BMap_cpyCtrl').css({
+            display: 'none',
+          })
+          $('[title="到百度地图查看此区域"]').css({
+            display: 'none'
+          })
+        }, 300)
 
-      // 将百度水印去掉
-      setTimeout(() => {
-        $('.BMap_cpyCtrl').css({
-          display: 'none',
-        })
-        $('[title="到百度地图查看此区域"]').css({
-          display: 'none'
-        })
-      }, 300)
+
+      })
+
+
 
     }
   }

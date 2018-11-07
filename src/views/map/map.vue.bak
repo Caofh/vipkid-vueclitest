@@ -1,0 +1,241 @@
+<template>
+  <div id="app">
+    <div id="container">
+
+    </div>
+
+
+
+      <crop :beforeCrop="beforeCrop" :uploadSuccess="uploadSuccess" :cropClick="cropClick"
+            :boxMoveSuccess="boxMoveSuccess" :option="option"></crop>
+  </div>
+</template>
+
+<script>
+  import $ from 'n-zepto'
+  import crop from '../cropper2/cropper2.vue'
+
+  export default {
+    name: 'App',
+    data () {
+      return {
+        option: {
+//          img: 'https://qn-qn-kibey-static-cdn.app-echo.com/goodboy-weixin.PNG',
+          img: '',
+          size: 1,
+          full: false,
+          outputType: 'png',
+          canMove: true,
+          fixed: true, // 固定截图框比例
+          fixedBox: false,
+          original: true, // 裁剪图片是否撑满裁剪背景
+          canMoveBox: true,
+          autoCrop: true,
+          // 只有自动截图开启 宽度高度才生效
+          autoCropWidth: 200,
+          autoCropHeight: 200,
+          centerBox: false,
+          high: true
+        },
+      }
+    },
+    created () {
+
+    },
+    components: { // crop_plugin
+      crop
+    },
+    methods: {
+      // 校验文件规则
+      beforeCrop (fileData) {
+        console.log(fileData)
+
+        return true
+
+      },
+      // 上传七牛成功后回调(存在即上传七牛，不存在则不上传七牛；返回：七牛的图片url、图片裁剪的宽高)
+      uploadSuccess (imgData) {
+        console.log(imgData)
+
+        alert(imgData.imgUrl)
+
+      },
+
+      // 裁剪按钮的回调(返回：base64数据流，图片裁剪的宽高)
+      cropClick (data) {
+        console.log(data)
+
+
+      },
+      // 裁剪框移动时的相关位置信息
+      boxMoveSuccess (data) {
+        console.log(data)
+      }
+
+    },
+    mounted () {
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(116.417854,39.921988);
+        map.centerAndZoom(point, 15);
+        var opts = {
+          position : point,    // 指定文本标注所在的地理位置
+          offset   : new BMap.Size(30, -30)    //设置文本偏移量
+        }
+        var label = new BMap.Label("欢迎使用百度地图，这是一个简单的文本标注哦~", opts);  // 创建文本标注对象
+        label.setStyle({
+          color : "red",
+          fontSize : "12px",
+          height : "20px",
+          lineHeight : "20px",
+          fontFamily:"微软雅黑"
+        });
+        map.addOverlay(label);
+
+        return false
+
+
+
+//        var map = new BMap.Map("container");
+//        var point = new BMap.Point(116.404, 39.915)
+//        map.centerAndZoom(point, 11);
+//
+//        // 获取地图区域的边界
+//        var bounds = map.getBounds();
+//        // 获取西南角的经纬度信息
+//        var sw = bounds.getSouthWest();
+//        // 获取东北角的经纬度信息 东边的经度>西边的经度 北边的纬度>南边的纬度
+//        var ne = bounds.getNorthEast();
+//
+//        // lng为longitute 经度 lat为latitute纬度
+//        var lngSpan = ne.lng - sw.lng;
+//        var latSpan = ne.lat - sw.lat;
+//        var arrFeatures = [];
+//        for (var i = 0; i < 500; i ++) {
+//          // 初始化位置
+//          var mpt = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7 + 0.15),
+//            sw.lat + latSpan * (Math.random() * 0.7 + 0.15));
+//          // 变换icon
+//          var iconOffsetX = 42;
+//          var iconOffsetY = 66;
+//
+//          var massFeature = new BMap.MassFeature(mpt, {data: 'MassFeature' + i});
+//          arrFeatures.push(massFeature);
+//        }
+//        // 添加海量覆盖物
+//        function addMarker() {
+//          map.addMassFeatures(arrFeatures);
+//
+//        }
+//        // 移除海量覆盖物
+//        function removeMarker() {
+//          map.removeMassFeatures(arrFeatures);
+//          document.querySelector('.popup').innerHTML = '点击Marker显示信息';
+//        }
+//
+//        addMarker()
+//
+////        // 为海量覆盖物(新版Marker)添加监听
+//        map.addEventListener('massfeaturesclick', function (evt) {
+//          console.log(evt)
+//
+//          return false
+//          var popup = document.querySelector('.popup');
+//          var massFeatures = evt.massFeatures;
+//          if (massFeatures.length > 0) {
+//            var feature = massFeatures[0];
+//            var name = feature.getData();
+//            var point = feature.getPosition();
+//            popup.innerHTML = name + ': ' + point.lng.toFixed(0) + ', ' + point.lat.toFixed(0);
+//          } else {
+//            popup.innerHTML = '点击Marker显示信息';
+//          }
+//        });
+
+
+
+
+
+
+
+
+
+
+
+
+      return false
+//      var map = new BMap.Map("container")
+//      var point = new BMap.Point(116.404, 39.915)
+//
+//      map.centerAndZoom(point, 15) // 15为默认缩放级别
+//
+//      map.enableScrollWheelZoom(true) // 开启鼠标滚轮缩放
+//
+//
+//      var marker = new BMap.Marker(point);        // 创建标注
+//      map.addOverlay(marker);
+//
+//      var traffic = new BMap.TrafficLayer();        // 创建交通流量图层实例
+//      map.addTileLayer(traffic);
+
+
+      var map = new BMap.Map("container");
+      var point = new BMap.Point(116.404, 39.915)
+      map.centerAndZoom(point, 11);
+      map.addEventListener("click", function(){
+          alert("您点击了地图。");
+        }
+      );
+
+      var marker = new BMap.Marker(point);
+      map.addOverlay(marker);
+
+      map.addEventListener('click', function (evt) {
+//        var point = evt.target.mc;
+//        var info  = '点击Marker坐标: ' + point.lng.toFixed(0) + ', ' + point.lat.toFixed(0);
+//        alert(info);
+        console.log(evt)
+      });
+
+
+
+
+//      window.setTimeout(function(){
+//        map.panTo(new BMap.Point(116.409, 39.918))
+//      }, 2000)
+
+
+
+      // 将百度水印去掉
+      setTimeout(() => {
+        $('.BMap_cpyCtrl').css({
+          display: 'none',
+        })
+        $('[title="到百度地图查看此区域"]').css({
+          display: 'none'
+        })
+      }, 300)
+
+    }
+  }
+
+</script>
+
+<style scoped lang="scss">
+  body {
+    margin: 0;
+  }
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    /*margin-top: 60px;*/
+
+    #container {
+      width: 800px;
+      height: 500px;
+    }
+  }
+</style>

@@ -36,7 +36,7 @@
     <div class="btn-group abc-flex-x-center">
       <div class="up-img">
         上传图片
-        <input ref="imgUpload" type="file" @change="changeFile($event)">
+        <input ref="imgUpload" type="file" accept="image/*" @change="changeFile($event)">
       </div>
 
       <div v-if="cropMark" v-loading="confirmLoading" class="confirm" @click="cropButton">
