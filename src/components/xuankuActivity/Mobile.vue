@@ -39,7 +39,7 @@
         <input ref="imgUpload" type="file" accept="image/*" @change="changeFile($event)">
       </div>
 
-      <div v-if="cropMark" v-loading="confirmLoading" class="confirm" @click="cropButton">
+      <div v-if="cropMark" v-loading="confirmLoading" :class="['confirm']" @click="cropButton">
         确定
       </div>
     </div>
@@ -51,7 +51,7 @@
         <div><input v-model="name" type="text" placeholder="姓名"></div>
         <div><input v-model="phone" type="text" placeholder="电话号码"></div>
         <div class="tip">***电话与最终奖品发放有关<br/>请填写真实号码</div>
-        <div @click="dialogConfirm" class="abc-btn">确定</div>
+        <div @click="dialogConfirm" :class="['abc-btn', {ok: name && phone}]">确定</div>
       </div>
     </div>
 
@@ -144,6 +144,9 @@
         }
       },
       async dialogConfirm () {
+        if (!this.name || !this.phone) return
+
+
         const data = {
           name: this.name || '',
           phone: this.phone || '',
@@ -436,8 +439,13 @@
         }
         & > .abc-btn {
           border-radius: 0;
-          background: #f71;
-          border-color: #f71;
+          background: #f0f0f0;
+          border-color: #f0f0f0;
+
+          &.ok {
+            background: #f71;
+            border-color: #f71;
+          }
         }
 
       }
