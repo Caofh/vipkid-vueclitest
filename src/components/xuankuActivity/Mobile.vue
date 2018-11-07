@@ -36,7 +36,7 @@
     <div class="btn-group abc-flex-x-center">
       <div class="up-img">
         上传图片
-        <input ref="imgUpload" type="file" accept="image/*" @change="changeFile($event)">
+        <input id="upFile" ref="imgUpload" type="file" accept="image/*" capture="camera" @change="changeFile($event)">
       </div>
 
       <div v-if="cropMark" v-loading="confirmLoading" :class="['confirm']" @click="cropButton">
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+  import $ from 'n-zepto'
   import '@/assets/js/m'
   import { VueCropper }  from 'vue-cropper'
   import { uploadBase64Img, updateUser, getChallengeList, addUser } from '@/api/xuanku/index'
@@ -128,13 +129,60 @@
       }
 
 
-
+      // 做安卓啊和ios特殊化处理，调起拍照功能.
+      let plateform = this.getDeviceInfo()
+      if (plateform == "iPhone") {
+        $('#upFile').removeAttr("capture");
+      }else {
+        $('#upFile').attr("capture","camera");
+      }
 
     },
     components: {
       VueCropper
     },
     methods: {
+      getDeviceInfo () {
+        let deviceInfo = ''
+
+        let app=navigator.appVersion;
+        //    根据括号进行分割
+        let left=app.indexOf('(');
+        let right=app.indexOf(')');
+        let str=app.substring(left+1,right);
+        // console.log(str+'裁剪过后的');
+        let Str=str.split(";");
+
+        console.log(Str)
+
+        // 手机型号--苹果 iPhone
+        let Mobile_Iphone=Str[0];
+        // 手机型号--安卓
+        let Mobile_Android=Str[2];
+        // 红米手机等特殊型号处理 匹配字符
+        let res=/Android/;
+        let reslut=res.test(Mobile_Android);
+
+        // 根据设备型号判断设备系统
+        if(Mobile_Iphone=='iPhone'){
+          deviceInfo = Mobile_Iphone
+//          alert('访问设备型号'+Mobile_Iphone+'系统版本'+Str[1].substring(4,19));
+        }else if(Mobile_Iphone=='Linux'){
+          if(reslut){
+            deviceInfo = Str[4].substring(0,9)
+//            alert('访问设备型号'+Str[4].substring(0,9)+'系统版本'+Str[2]);
+          }else{
+            deviceInfo = Mobile_Android.substring(0,9)
+//            alert('访问设备型号'+Mobile_Android.substring(0,9)+'系统版本'+Str[1]);
+          }
+        }else if(Mobile_Iphone=='iPad'){
+          deviceInfo = Str[0]
+//          alert('访问设备'+Str[0]+'系统版本'+Str[1].substring(4,12));
+        }
+
+        return deviceInfo
+      },
+
       // 头像的交互效果（图片懒加载）
       lazyImgLoading (data, callback) {
         let img = new Image()
