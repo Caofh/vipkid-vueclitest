@@ -36,7 +36,16 @@
     <div class="btn-group abc-flex-x-center">
       <div class="up-img">
         上传图片
-        <input id="upFile" ref="imgUpload" type="file" accept="image/*" capture="camera" @change="changeFile($event)">
+        <input ref="imgUpload" type="file" @change="changeFile($event)">
+      </div>
+
+      <!--<div v-if="deviceType != 'iPhone'" class="up-img take-phone">-->
+        <!--拍照-->
+        <!--<input ref="imgUpload" type="file" accept="image/*" capture="camera" @change="changeFile($event)">-->
+      <!--</div>-->
+      <div class="up-img take-phone">
+        拍照
+        <input ref="imgUpload" type="file" accept="image/*" capture="camera" @change="changeFile($event)">
       </div>
 
       <div v-if="cropMark" v-loading="confirmLoading" :class="['confirm']" @click="cropButton">
@@ -80,6 +89,7 @@
         imgOriginUrl: '', // 当前图片url
 
         cropMark: false,
+        deviceType: '', // 设备类型
 
         option: {
           img: '',
@@ -100,6 +110,12 @@
         },
 
       }
+    },
+    created () {
+      // 做安卓啊和ios特殊化处理，调起拍照功能.
+      let plateform = this.getDeviceInfo()
+      this.deviceType = plateform
+
     },
     async mounted () {
 
@@ -126,15 +142,6 @@
           this.loadingMark = false
         })
 
-      }
-
-
-      // 做安卓啊和ios特殊化处理，调起拍照功能.
-      let plateform = this.getDeviceInfo()
-      if (plateform == "iPhone") {
-        $('#upFile').removeAttr("capture");
-      }else {
-        $('#upFile').attr("capture","camera");
       }
 
     },
@@ -433,11 +440,15 @@
           height: 100%;
           opacity: 0;
         }
+
+        &.take-phone {
+          margin-left: pr(40);
+        }
       }
 
       .confirm {
         position: relative;
-        margin-left: pr(150);
+        margin-left: pr(40);
         width: pr(150);
         height: pr(80);
         text-align: center;
