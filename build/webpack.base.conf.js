@@ -7,7 +7,7 @@ const vueLoaderConfig = require('./vue-loader.conf')
 //获取多入口js文件,新加HtmlWebpackPlugin
 var srcDir = path.resolve(__dirname, '../src')
 var entrys = utils.getEntries(srcDir + '/views/**/*.js')
-// var entrys = utils.getEntries(srcDir + '/views/xuankuActivity/xuankuActivity.js')
+// var entrys = utils.getEntries(srcDir + '/views/office365/office365.js')
 
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 /*************************/
@@ -80,7 +80,12 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+      {
+        test: /\.tpl$/,
+        loader: 'underscore-template-loader',
+        //options: {engine: 'lodash',}
+      },
     ]
   },
   node: {
